@@ -13,7 +13,12 @@ namespace Mag3DView.Views
 
         // Single point vertex at (0.0, 0.0, 0.0)
         private readonly float[] _pointVertex = { 0.0f, 0.0f, 0.0f };
-
+        private readonly float[] _pointsVertex =
+        {
+            -0.5f, -0.5f, 0.0f, // Bottom-left vertex
+             0.5f, -0.5f, 0.0f, // Bottom-right vertex
+             0.0f,  0.5f, 0.0f  // Top vertex
+        };
         public OpenGlWindow()
             : base(GameWindowSettings.Default, new NativeWindowSettings()
             {
@@ -33,7 +38,7 @@ namespace Mag3DView.Views
             // Setup Vertex Array Object (VAO) and Vertex Buffer Object (VBO)
             _vertexBufferObject = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject);
-            GL.BufferData(BufferTarget.ArrayBuffer, _pointVertex.Length * sizeof(float), _pointVertex, BufferUsageHint.StaticDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, _pointsVertex.Length * sizeof(float), _pointsVertex, BufferUsageHint.StaticDraw);
 
             // Create Vertex Array Object
             _vertexArrayObject = GL.GenVertexArray();
@@ -62,7 +67,7 @@ namespace Mag3DView.Views
             GL.BindVertexArray(_vertexArrayObject);
 
             // Draw the point
-            GL.DrawArrays(PrimitiveType.Points, 0, 1); // Draw 1 point
+            GL.DrawArrays(PrimitiveType.Points, 0, 3); // Draw 3 point
 
             SwapBuffers();
         }
