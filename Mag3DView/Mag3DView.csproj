@@ -23,4 +23,10 @@
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.1.0" />
     <PackageReference Include="OpenTK" Version="4.8.2" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Avalonia.OpenGL">
+      <HintPath>..\..\..\Avalonia.Repo\Avalonia\src\Avalonia.OpenGL\bin\Debug\net8.0\Avalonia.OpenGL.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

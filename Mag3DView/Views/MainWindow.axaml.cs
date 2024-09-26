@@ -1,6 +1,5 @@
 using Avalonia.Controls;
-using Avalonia.Threading;
-using System.Threading.Tasks;
+using Avalonia.Markup.Xaml;
 
 namespace Mag3DView.Views
 {
@@ -9,17 +8,13 @@ namespace Mag3DView.Views
         public MainWindow()
         {
             InitializeComponent();
-            StartOpenGLWindow();
+            var openGLControl = new OpenGLControl();
+            Content = openGLControl; // Set OpenGLControl as the content of the main window
         }
 
-        private void StartOpenGLWindow()
+        private void InitializeComponent()
         {
-            // Use Avalonia's Dispatcher to ensure the OpenTK window runs on the main thread
-            Dispatcher.UIThread.InvokeAsync(() =>
-            {
-                var glWindow = new StartOpenGLWindow();
-                glWindow.Run();
-            });
+            AvaloniaXamlLoader.Load(this);
         }
     }
 }
