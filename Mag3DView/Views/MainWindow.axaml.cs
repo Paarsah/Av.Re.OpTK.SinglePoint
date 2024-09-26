@@ -9,15 +9,15 @@ namespace Mag3DView.Views
         public MainWindow()
         {
             InitializeComponent();
-            StartOpenGlWindow();
+            StartOpenGLWindow();
         }
 
-        private void StartOpenGlWindow()
+        private void StartOpenGLWindow()
         {
             // Use Avalonia's Dispatcher to ensure the OpenTK window runs on the main thread
             Dispatcher.UIThread.InvokeAsync(() =>
             {
-                var glWindow = new OpenGlWindow();
+                var glWindow = new StartOpenGLWindow();
                 glWindow.Run();
             });
         }

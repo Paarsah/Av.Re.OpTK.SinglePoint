@@ -5,7 +5,7 @@ using OpenTK.Windowing.Desktop;
 
 namespace Mag3DView.Views
 {
-    public class OpenGlWindow : GameWindow
+    public class StartOpenGLWindow : GameWindow
     {
         private int _vertexBufferObject;
         private int _vertexArrayObject;
@@ -19,7 +19,7 @@ namespace Mag3DView.Views
              0.5f, -0.5f, 0.0f, // Bottom-right vertex
              0.0f,  0.5f, 0.0f  // Top vertex
         };
-        public OpenGlWindow()
+        public StartOpenGLWindow()
             : base(GameWindowSettings.Default, new NativeWindowSettings()
             {
                 Size = new Vector2i(800, 450),
